@@ -2,7 +2,7 @@ import ExpenseItem from '../ExpenseItem/ExpenseItem';
 import Card from '../../generalUI/Card/Card';
 import './Expenses.css';
 
-const Expenses = () =>(appProps){
+const Expenses = (appProps) => {
     return (
         <Card className="expenses">
             <ExpenseItem
