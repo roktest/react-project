@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./ExpenseItem.css";
 import ExpenseDate from "../ExpenseDate/ExpenseDate";
 import Card from "../../generalUI/Card/Card";
 
+
 const ExpenseItem = (expenseItemProps) => {
-  let title = expenseItemProps.title;
+
+  //array distructuring
+  //the first element is the pointer to the variable and the second is a function
+  //useState returns an array of two elements
+  //the first is the current state value
+  //the second one is a function for updating that
+  const [title, setTitle] = useState(expenseItemProps.title);
 
   const clickHandler = () => {
-    console.log('clicked');
-    title = 'Updated';
+    setTitle('Updated');
     console.log(title);
   }
 
