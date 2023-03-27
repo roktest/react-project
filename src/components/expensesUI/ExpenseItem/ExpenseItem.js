@@ -1,32 +1,22 @@
-import React, { useState } from 'react';
 import "./ExpenseItem.css";
-import ExpenseDate from "../ExpenseDate/ExpenseDate";
-import Card from "../../generalUI/Card/Card";
 
-
-const ExpenseItem = (expenseItemProps) => {
-
-  //array distructuring
-  //the first element is the pointer to the variable and the second is a function
-  //useState returns an array of two elements
-  //the first is the current state value
-  //the second one is a function for updating that
-  const [title, setTitle] = useState(expenseItemProps.title);
-
-  const clickHandler = () => {
-    setTitle('Updated');
-    console.log(title);
-  }
+function ExpenseItem(expenseItemProps) {
+  const month = expenseItemProps.date.toLocaleString('en-Us', {month: 'long'});
+  const day = expenseItemProps.date.toLocaleString('en-Us', {day: '2-digit'});
+  const year = expenseItemProps.date.getFullYear();
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={expenseItemProps.date}></ExpenseDate>
+    <div className="expense-item">
+      <div className="expense-item__date">
+        <div>{month}</div>
+        <div>{day}</div>
+        <div>{year}</div>
+      </div>
       <div className="expense-item__description">
-        <h2 className="expense-item__title">{title}</h2>
+        <h3 className="expense-item__title">{expenseItemProps.title}</h3>
         <div className="expense-item__price">$ {expenseItemProps.price}</div>
       </div>
-      <button onClick={clickHandler}>Change title</button>
-    </Card>
+    </div>
   );
 }
 
