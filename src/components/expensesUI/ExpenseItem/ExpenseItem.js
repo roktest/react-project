@@ -1,17 +1,22 @@
-import React from 'react';
 import "./ExpenseItem.css";
-import ExpenseDate from "../ExpenseDate/ExpenseDate";
-import Card from "../../generalUI/Card/Card";
 
-const ExpenseItem = (expenseItemProps) => {
+function ExpenseItem(expenseItemProps) {
+  const month = expenseItemProps.date.toLocaleString('en-Us', {month: 'long'});
+  const day = expenseItemProps.date.toLocaleString('en-Us', {day: '2-digit'});
+  const year = expenseItemProps.date.getFullYear();
+
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={expenseItemProps.date}></ExpenseDate>
+    <div className="expense-item">
+      <div className="expense-item__date">
+        <div>{month}</div>
+        <div>{day}</div>
+        <div>{year}</div>
+      </div>
       <div className="expense-item__description">
-        <h2 className="expense-item__title">{expenseItemProps.title}</h2>
+        <h3 className="expense-item__title">{expenseItemProps.title}</h3>
         <div className="expense-item__price">$ {expenseItemProps.price}</div>
       </div>
-    </Card>
+    </div>
   );
 }
 

@@ -1,4 +1,5 @@
 import Expenses from "./components/expensesUI/Expenses/Expenses";
+import NewExpense from "../src/components/expensesUI/NewExpense/NewExpense";
 
 const App = () => {
   const expenses = [
@@ -25,9 +26,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Expenses App</h1>
-      <p>wellcome!</p>
-      <hr></hr>
+      <NewExpense></NewExpense>
       <Expenses items={expenses}></Expenses>
     </div>
   );
